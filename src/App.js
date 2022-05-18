@@ -4,6 +4,9 @@ import "react-toastify/dist/ReactToastify.css";
 import { Route, Routes } from "react-router";
 import Todo from "./components/Todo";
 import Header from "./components/Header";
+import Login from "./components/Auth/Login";
+import Register from "./components/Auth/Register";
+import Logout from "./components/Auth/Logout";
 
 function App() {
   return (
@@ -11,6 +14,9 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Todo />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/logout" element={<Logout />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
       <ToastContainer />
     </>

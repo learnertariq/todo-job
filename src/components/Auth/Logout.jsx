@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { signOut } from "firebase/auth";
-import auth from "../../utils/firebase.init";
 import userService from "../../service/userService";
 import { Spinner } from "react-bootstrap";
+import auth from "../../utils/firebase.init";
 
 const Logout = () => {
   useEffect(() => {

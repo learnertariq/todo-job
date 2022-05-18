@@ -30,6 +30,7 @@ const Login = () => {
     if (user || userGoogle) {
       userService.login({ email: userState.email });
 
+      console.log(user);
       navigate(location?.state?.from?.pathname || "/", {
         state: location?.state,
         replace: true,
@@ -99,18 +100,6 @@ const Login = () => {
             Login
           </Button>
         </Form>
-
-        <div className="text-center pt-3">
-          <Button
-            as={Link}
-            to="/forgot-pass"
-            className="fw-bold text-danger"
-            variant="outline"
-            type="submit"
-          >
-            Forgot password?
-          </Button>
-        </div>
 
         <div className="text-center pt-3">
           <Button

@@ -6,7 +6,6 @@ import TableRow from "./TableRow";
 const TodoTable = ({ isLoading, error, data, refetch }) => {
   if (isLoading) return <Loading />;
 
-  console.log(data);
   return (
     <Table responsive>
       <thead>

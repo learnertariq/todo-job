@@ -57,6 +57,9 @@ const Register = () => {
     await createUserWithEmailAndPassword(userState.email, userState.password);
     // update display name
     await updateProfile(user, { displayName: userState.name });
+
+    // clear the form
+    e.target.reset();
   };
 
   if (loading || updating || loadingGoogle) {
@@ -104,7 +107,7 @@ const Register = () => {
           />
         </Form.Group>
         {(error || updateError || errorGoogle) && (
-          <p className="text-error">
+          <p className="text-danger">
             {error?.message || updateError?.message || errorGoogle?.message}
           </p>
         )}

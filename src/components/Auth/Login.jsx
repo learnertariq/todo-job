@@ -30,7 +30,6 @@ const Login = () => {
     if (user || userGoogle) {
       userService.login({ email: userState.email });
 
-      console.log(user);
       navigate(location?.state?.from?.pathname || "/", {
         state: location?.state,
         replace: true,
@@ -50,6 +49,9 @@ const Login = () => {
     e.preventDefault();
     // sign in user
     await signInWithEmailAndPassword(userState.email, userState.password);
+
+    // clear the form
+    e.target.reset();
   };
 
   if (loading || loadingGoogle) {
@@ -88,7 +90,7 @@ const Login = () => {
             />
           </Form.Group>
           {(error || errorGoogle) && (
-            <p className="text-error">
+            <p className="text-danger">
               {error?.message || errorGoogle?.message}
             </p>
           )}

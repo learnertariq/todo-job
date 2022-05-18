@@ -16,6 +16,9 @@ const AddTask = ({ refetch }) => {
     } catch (error) {
       toast.error(error.message);
     }
+
+    // clear the form
+    e.target.reset();
   };
 
   return (

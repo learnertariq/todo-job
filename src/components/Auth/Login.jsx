@@ -28,7 +28,9 @@ const Login = () => {
 
   useEffect(() => {
     if (user || userGoogle) {
-      userService.login({ email: userState.email });
+      userService.login({
+        email: user?.user?.email || userGoogle?.user?.email,
+      });
 
       navigate(location?.state?.from?.pathname || "/", {
         state: location?.state,

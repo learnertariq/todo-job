@@ -3,7 +3,7 @@ import { Table } from "react-bootstrap";
 import Loading from "./Loading";
 import TableRow from "./TableRow";
 
-const TodoTable = ({ isLoading, error, data }) => {
+const TodoTable = ({ isLoading, error, data, refetch }) => {
   if (isLoading) return <Loading />;
 
   console.log(data);
@@ -20,7 +20,12 @@ const TodoTable = ({ isLoading, error, data }) => {
       </thead>
       <tbody>
         {data?.map((task, index) => (
-          <TableRow key={task._id} index={index} task={task} />
+          <TableRow
+            key={task._id}
+            index={index}
+            task={task}
+            refetch={refetch}
+          />
         ))}
       </tbody>
     </Table>

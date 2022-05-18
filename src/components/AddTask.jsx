@@ -14,7 +14,7 @@ const AddTask = ({ refetch }) => {
       refetch();
       toast.success("Task successfully Added");
     } catch (error) {
-      console.log(error.message);
+      toast.error(error.message);
     }
   };
 

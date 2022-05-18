@@ -15,7 +15,12 @@ function App() {
   return (
     <section className="mx-auto" style={{ maxWidth: "500px" }}>
       <h1 className="text-center text-primary">Todo App</h1>
-      <TodoTable data={data?.data} isLoading={isLoading} error={error} />
+      <TodoTable
+        data={data?.data}
+        isLoading={isLoading}
+        error={error}
+        refetch={refetch}
+      />
       <AddTask refetch={refetch} />
       <ToastContainer />
     </section>

@@ -5,6 +5,7 @@ import http from "../service/http";
 
 const TableRow = ({ task: { name, desc, _id, complete }, index, refetch }) => {
   const handleComplete = async () => {
+    if (complete) return toast.error("Already completed");
     try {
       const data = await http.patch(`/tasks/${_id}`, { complete: true });
       refetch();

@@ -1,12 +1,22 @@
 import React from "react";
+import { Button } from "react-bootstrap";
 
-const TableRow = () => {
+const TableRow = ({ task: { name, desc } }) => {
   return (
     <tr>
       <td>1</td>
-      {Array.from({ length: 4 }).map((_, index) => (
-        <td key={index}>Table cell {index}</td>
-      ))}
+      <td>{name}</td>
+      <td>{desc}</td>
+      <td>
+        <Button variant="success" size="sm">
+          Complete
+        </Button>
+      </td>
+      <td>
+        <Button variant="danger" size="sm">
+          Del
+        </Button>
+      </td>
     </tr>
   );
 };

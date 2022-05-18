@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Table } from "react-bootstrap";
+import Loading from "./Loading";
 import TableRow from "./TableRow";
 
-const TodoTable = () => {
+const TodoTable = ({ isLoading, error, data }) => {
+  if (isLoading) return <Loading />;
+
+  console.log(data);
   return (
     <Table responsive>
       <thead>
@@ -15,7 +19,9 @@ const TodoTable = () => {
         </tr>
       </thead>
       <tbody>
-        <TableRow />
+        {data?.map((task) => (
+          <TableRow key={task._id} task={task} refetch={refetch} />
+        ))}
       </tbody>
     </Table>
   );

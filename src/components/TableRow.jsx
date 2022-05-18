@@ -1,10 +1,10 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 
-const TableRow = ({ task: { name, desc } }) => {
+const TableRow = ({ task: { name, desc }, index }) => {
   return (
     <tr>
-      <td>1</td>
+      <td>{index + 1}</td>
       <td>{name}</td>
       <td>{desc}</td>
       <td>

@@ -1,16 +1,18 @@
 import React from "react";
 import { Button, Form } from "react-bootstrap";
+import { toast } from "react-toastify";
 import http from "../service/http";
 
-const AddTask = () => {
+const AddTask = ({ refetch }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const name = e.target.name.value;
     const desc = e.target.desc.value;
 
     try {
-      const { data } = await http.post("/tasks", { name, desc });
-      console.log(data);
+      await http.post("/tasks", { name, desc });
+      refetch();
+      toast.success("Task successfully Added");
     } catch (error) {
       console.log(error.message);
     }

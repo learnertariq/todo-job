@@ -19,8 +19,8 @@ const TodoTable = ({ isLoading, error, data }) => {
         </tr>
       </thead>
       <tbody>
-        {data?.map((task) => (
-          <TableRow key={task._id} task={task} refetch={refetch} />
+        {data?.map((task, index) => (
+          <TableRow key={task._id} index={index} task={task} />
         ))}
       </tbody>
     </Table>

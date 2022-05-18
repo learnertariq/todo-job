@@ -13,6 +13,16 @@ const TableRow = ({ task: { name, desc, _id, complete }, index, refetch }) => {
       toast.error(error.message);
     }
   };
+
+  const handleDelete = async () => {
+    try {
+      const data = await http.delete(`/tasks/${_id}`);
+      refetch();
+      toast.success("Successfully deleted");
+    } catch (error) {
+      toast.error(error.message);
+    }
+  };
   return (
     <tr>
       <td>{index + 1}</td>
@@ -30,7 +40,7 @@ const TableRow = ({ task: { name, desc, _id, complete }, index, refetch }) => {
         </Button>
       </td>
       <td>
-        <Button variant="danger" size="sm">
+        <Button variant="danger" size="sm" onClick={handleDelete}>
           Del
         </Button>
       </td>
